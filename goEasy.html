@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script type="text/javascript" src="https://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+  <script type="text/javascript">
+    var goEasy = new GoEasy({
+      appkey: 'BC-7a4c4efed142495e870b4642e1575463'
+    })
+    //GoEasy-OTP可以对appkey进行有效保护，详情请参考：GoEasy-Reference
+
+    // 从web客户端推送消息
+    goEasy.publish({
+      channel: '123',
+      message: 'Hello world!'
+    })
+
+
+    // 在web客户端接收消息
+    goEasy.subscribe({
+      channel: '123',
+      onSuccess: function() {
+        // alert(1)
+      },
+      onMessage: function(data) {
+        var result = data.content
+        alert('收到：'+ result);
+      }
+    })
+  </script>
+</html>
